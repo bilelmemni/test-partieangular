@@ -1,0 +1,11 @@
+.quantity {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#p1 {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}

@@ -1,0 +1,39 @@
+<article class="card post-card h-100 border-0 bg-transparent">
+    <div class="card-body">
+        <a class="d-block" href="blog-single.html" title="The AGI hype train is running out of steam">
+
+        </a>
+        <ul class="card-meta list-inline mb-3">
+            <li class="list-inline-item mt-2">
+                <i class="ti ti-calendar-event"></i>
+                <H3> {{article?.name}} </H3>
+
+        </ul>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let item of article?.livres ; let i=index">
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+
+                    <td>{{item.Title}}</td>
+                    <td>{{item.Author}}</td>
+
+
+                    <td> </td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</article>

@@ -1,0 +1,18 @@
+<div class="container-fluid mx-auto border border-dark form-control mt-5" style="width: 50%;">
+    <h1 class="text-center">Add categorie:</h1>
+    <hr>
+    <form [formGroup]="categories">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name:</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="..."
+                formControlName="name" [ngClass]="{'is-invalid':validation&&categories.get('name')?.errors,
+        'is-valid':validation&&!categories.get('name')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&categories.get('name')?.hasError('required')">
+                categorie required
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" (click)="addcat()" type="button">Valide</button>
+        </div>
+    </form>
+</div>

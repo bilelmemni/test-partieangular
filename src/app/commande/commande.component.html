@@ -1,0 +1,75 @@
+<div style="width: 1000px; margin: auto;">
+    <h1 style="text-align: center; margin-top: 10px">List download </h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name Client</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let item of products ; let i=index">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+
+                <td>{{item.client.firstname}}</td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="openModal(item._id)" data-bs-toggle="modal"
+                        data-bs-target="#Produit1" id="Add"> List downloads </button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deletecommande(item._id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Modal commande-->
+    <div class="modal fade" id="Produit1" tabindex="-1" aria-labelledby="produit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5"><i class="bi bi-plus-circle"></i>List de commande</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">title book</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Nombre books daowload</th>
+
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody *ngFor="let item of   listproduct?.Livres         ; let i=index">
+                            <tr>
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{item.Title}}</td>
+                                <td>{{item.Author}}</td>
+                                <td>{{item.Quantity}}</td>
+
+                                <td> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

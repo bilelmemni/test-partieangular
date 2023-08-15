@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg  bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item" *ngIf="auth.isLogedIn()">
+                    <a class="nav-link active" aria-current="page" routerLink="/addbook"><i
+                            class="fas fa-circle-plus"></i> Add Book </a>
+                </li>
+                <li class="nav-item" *ngIf="auth.isLogedIn()">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/addcategory']"><i
+                            class="fas fa-circle-plus"></i> add Category</a>
+                </li>
+                <li class="nav-item" *ngIf="auth.isLogedIn()">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/listbook']">
+                        <i class="fa-solid fa-list"></i>List Book</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/panier']"><i
+                            class="fa-solid fa-cart-shopping"></i>Panier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" *ngIf="auth.isLogedIn()"
+                        [routerLink]="['/commande']"><i class="fa-solid fa-list"></i>list
+                        commande</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        List categorie
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngIf="auth.isLogedIn()"><a class="dropdown-item"> All </a></li>
+                        <li *ngFor="let item of catigory"><a class="dropdown-item" [routerLink]="['/listcat',item._id]">
+                                {{item.name}} </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav me-5 mb-2 mb-lg-0 ">
+                <li class="nav-item" *ngIf="auth.isLogedIn()">
+                    <a class="nav-link active" [routerLink]="['/account',auth.getAuthorDataFromToken()._id]"><i
+                            class="fas fa-user-plus"></i> My Account</a>
+                </li>
+                <li class="nav-item" *ngIf="!auth.isLogedIn()">
+                    <a class="nav-link active" routerLink="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </li>
+
+                <li class="nav-item" *ngIf="!auth.isLogedIn()">
+                    <a class="nav-link active" routerLink="/login"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                </li>
+
+                <li class="nav-item" *ngIf="auth.isLogedIn()">
+                    <a class="nav-link active" (click)="logout()" routerLink="/home"><i class="fas fa-sign-out-alt"></i>
+                        Sign
+                        Out</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

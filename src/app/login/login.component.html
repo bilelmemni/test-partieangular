@@ -1,0 +1,33 @@
+<div class="container-fluid mx-auto border border-dark form-control mt-5" style="width: 50%;">
+    <h1 class="text-center">Login:</h1>
+    <hr>
+    <form [formGroup]="formgroup">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                formControlName="email" [ngClass]="{'is-invalid':validation&&formgroup.get('email')?.errors,
+        'is-valid':validation&&!formgroup.get('email')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('email')?.hasError('required')">
+                email required
+            </div>
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('email')?.hasError('email')">
+                email incorrect
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="type your password"
+                formControlName="password" [ngClass]="{'is-invalid':validation&&formgroup.get('password')?.errors,
+        'is-valid':validation&&!formgroup.get('password')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('password')?.hasError('required')">
+                password required
+            </div>
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('password')?.hasError('minLength(5)')">
+                min 5 caracter
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" (click)="log()" type="button">Valide</button>
+        </div>
+    </form>
+</div>

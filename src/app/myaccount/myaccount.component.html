@@ -1,0 +1,23 @@
+<section class="page-header section-sm mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row g-4 g-lg-5 text-center text-lg-start justify-content-center justify-content-lg-start">
+                    <div class="col-lg-3 col-md-4 col-sm-5 col-6">
+                        <img class="img-fluid rounded" [src]="'http://127.0.0.1:3000/image/'+ author.image" alt=""
+                            width="250" height="250">
+                    </div>
+                    <div class="col-lg-9 col-md-12">
+                        <h1 class="h3 text-dark mb-3">{{author.firstname+' '+author.lastname}} </h1>
+                        <div class="content">
+
+                            <button class="btn btn-dark mb-3" [routerLink]="['/addbook']">cree new
+                                article</button><br>
+                            <button class="btn btn-success" [routerLink]="['/cart']">My Commande</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

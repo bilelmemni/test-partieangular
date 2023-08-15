@@ -1,0 +1,60 @@
+<div class="container-fluid mx-auto border border-dark form-control mt-5" style="width: 50%;">
+    <h1 class="text-center">Registre:</h1>
+    <hr>
+    <form [formGroup]="formgroup">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Firstname..."
+                formControlName="firstname" [ngClass]="{'is-invalid':validation&&formgroup.get('firstname')?.errors,
+        'is-valid':validation&&!formgroup.get('firstname')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('firstname')?.hasError('required')">
+                first name required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Last name </label>
+            <input type="text" class="form-control" id="lastname" placeholder="Lastname.." formControlName="lastname"
+                [ngClass]="{'is-invalid':validation&&formgroup.get('lastname')?.errors,
+            'is-valid':validation&&!formgroup.get('lastname')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('lastname')?.hasError('required')">
+                lastname required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">role </label>
+            <input type="text" class="form-control" id="role" placeholder="role.." formControlName="role" [ngClass]="{'is-invalid':validation&&formgroup.get('role')?.errors,
+            'is-valid':validation&&!formgroup.get('role')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('role')?.hasError('required')">
+                lastname required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                formControlName="email" [ngClass]="{'is-invalid':validation&&formgroup.get('email')?.errors,
+            'is-valid':validation&&!formgroup.get('email')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('email')?.hasError('required')">
+                email required
+            </div>
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('email')?.hasError('email')">
+                email incorrect
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="type your password"
+                formControlName="password" [ngClass]="{'is-invalid':validation&&formgroup.get('password')?.errors,
+            'is-valid':validation&&!formgroup.get('password')?.errors}">
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('password')?.hasError('required')">
+                password required
+            </div>
+            <div class="invalid-feedback" *ngIf="validation&&formgroup.get('password')?.hasError('minLength')">
+                min 5 caracter
+            </div>
+        </div>
+        <input type="file" placeholder="url image" (change)="select($event)" class="form-control">
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" (click)="add()" type="button" [disabled]="formgroup.invalid">Valide</button>
+        </div>
+    </form>
+</div>

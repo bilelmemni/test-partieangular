@@ -1,0 +1,44 @@
+<div style="width: 1000px; margin: auto;">
+    <h1 style="text-align: center; margin-top: 10px">List books</h1>
+    <div class="row">
+        <div class="offset-1 col-9">
+            <button class="btn btn-success float-right my-2" routerLink="/addbook">Add Book</button>
+
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Description</th>
+                <th scope="col"> categorie</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <!-- |filter:Searchtext -->
+        <tbody *ngFor="let item of books ; let i=index">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.Title }}</td>
+                <td>{{item.Author }}...</td>
+                <td>{{item.Description}}</td>
+                <td>{{item.categorie}}</td>
+                <td>
+                    <button type="submit" class="btn btn-success" [routerLink]="['/updatebook', item._id ]">
+                        Updatebook</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(item._id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

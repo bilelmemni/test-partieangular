@@ -1,0 +1,47 @@
+<div class="container-fluid mx-auto border border-dark form-control mt-5" style="width: 50%;">
+    <h1 class="text-center">Update Book:</h1>
+    <hr>
+    <form [formGroup]="formgroup">
+
+        <div class="my-3">
+            <label for="p1" class="my-2">Categories</label>
+            <select class="form-select" aria-label="Default select example" formControlName="categorie">
+                <option *ngFor="let item of categories" value="{{item.name}}">{{item.name}}</option>
+            </select>
+
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Nom" placeholder=" title ... " formControlName="Title"
+                [ngClass]="{'is-valid':validation&&!formgroup.get('Title')?.errors,
+            'is-invalid':validation&&formgroup.get('Title')?.errors}">
+            <label for="Nom" class="form-label">Title :</label>
+            <div class="invalid-feedback " *ngIf="validation&&formgroup.get('Title')?.hasError('required')">
+                Please enter the title.
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Nom" placeholder=" Name ... " formControlName="Author"
+                [ngClass]="{'is-valid':validation&&!formgroup.get('Author')?.errors,
+            'is-invalid':validation&&formgroup.get('Author')?.errors}">
+            <label for="Nom" class="form-label">Author :</label>
+            <div class="invalid-feedback " *ngIf="validation&&formgroup.get('Author')?.hasError('required')">
+                Please enter the author.
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control " id="Description" placeholder=" Description ..." rows="2"
+                formControlName="Description" [ngClass]="{'is-valid':validation&&!formgroup.get('Description')?.errors,
+            'is-invalid':validation&&formgroup.get('Description')?.errors}"></textarea>
+            <label for="Description" class="form-label">Description :</label>
+            <div class="invalid-feedback " *ngIf="validation&&formgroup.get('Description')?.hasError('required')">
+                Please enter the discription
+            </div>
+        </div>
+
+        <input type="file" placeholder="url image" (change)="select($event)" class="form-control">
+        <div class="d-grid gap-2">
+            <button class="btn btn-success mt-2" (click)="update()" type="button">Valide</button>
+        </div>
+
+    </form>
+</div>
