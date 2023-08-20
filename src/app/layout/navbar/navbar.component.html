@@ -21,10 +21,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/panier']"><i
-                            class="fa-solid fa-cart-shopping"></i>Panier</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" *ngIf="auth.isLogedIn()"
                         [routerLink]="['/commande']"><i class="fa-solid fa-list"></i>list
                         commande</a>

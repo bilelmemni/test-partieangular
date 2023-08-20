@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
-import { DetailsComponent } from './details/details.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -15,7 +14,6 @@ import { ListcatethgorieComponent } from './listcatethgorie/listcatethgorie.comp
 import { LoginComponent } from './login/login.component';
 import { RegistreComponent } from './registre/registre.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { PanierComponent } from './panier/panier.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './providers/token.interceptor';
@@ -25,12 +23,12 @@ import { DeatilsbookComponent } from './deatilsbook/deatilsbook.component';
 import { CommandeComponent } from './commande/commande.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AddbookComponent,
     AddcategoryComponent,
-    DetailsComponent,
     MyaccountComponent,
     HomeComponent,
     NavbarComponent,
@@ -40,7 +38,6 @@ import { CommandeComponent } from './commande/commande.component';
     LoginComponent,
     RegistreComponent,
     NotfoundComponent,
-    PanierComponent,
     SearchPipe,
     UpdatebookComponent,
     DeatilsbookComponent,

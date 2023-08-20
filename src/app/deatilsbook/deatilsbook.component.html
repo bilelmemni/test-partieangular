@@ -1,30 +1,28 @@
-<section class="section-sm pb-0">
-    <div class="container">
-        <div class="row my-5">
+<div class="d-grid gap-2">
 
-            <div class="col-4 ">
-                <img class="w-100 h-auto rounded" [src]="'http://127.0.0.1:3000/file/'+article.File"
-                    alt="What does it take to create an object that travels at 1% the speed of light?" width="970"
-                    height="500">
+</div>
 
-            </div>
+<div class="container d-grid gap-2">
+    <div class="row">
+        <button class="btn btn-primary" (click)="downloadBookk()" type="button">Dowload Book</button>
+        <p class="text-center"> {{ message }}</p>
+        <p> <strong>Title:</strong> {{bookk.Title}} </p>
+        <p> <strong>Author:</strong>{{bookk.Author}} </p>
+        <p> <strong>Description:</strong> {{bookk.Description}} </p>
+        <p> <strong>Categorie:</strong> {{bookk.categorie}} </p>
 
+    </div>
+    <hr>
+    <table class="table table-hover">
 
-            <article class="card post-card  border-0 bg-transparent col-4">
-                <span class="badge text-bg-primary">{{article.Title}}</span><br>
-                <span class="badge text-bg-dark">{{article.Author}}</span><br>
-
-                <p> {{article.Discription}} </p>
-            </article>
-
-
-            <div class="col-4 text-center bg-light rounded">
-                <div class="d-grid gap-2 my-2">
-                    <button class="btn btn-success" (click)="addToCart1(article)" type="button">Ajouter au
-                        panier</button>
+        <tbody>
+            <tr>
+                <div>
+                    <img class="w-100 h-auto rounded" [src]="'http://127.0.0.1:3000/file/'+book.File">
                 </div>
 
-            </div>
-        </div>
-    </div>
-</section>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

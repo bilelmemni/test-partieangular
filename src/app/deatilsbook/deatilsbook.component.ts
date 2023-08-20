@@ -8,49 +8,57 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./deatilsbook.component.css']
 })
 export class DeatilsbookComponent {
-  product: any;
+  id: any;
+  book: any;
+  bookk: any;
+  message = '';
 
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) { }
 
-  id: any;
-  article: any;
-  cartProduct: any[] = []
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.data.getbooktbyid(this.id).subscribe(
       res => {
-        this.article = res
+        this.bookk = res
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+
+  downloadBookk(): void {
+    this.data.downloadBookk().subscribe(
+      () => {
+        this.message = 'Download successful.';
+        this.downloadBook()
+      },
+      error => {
+        this.message = error.error.message;
+      }
+    );
+  }
+  downloadBook(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.data.getbooktbyid(this.id).subscribe(
+      res => {
+        this.book = res
+        this.addcomande()
       },
       err => { }
     )
-
   }
 
-  addToCart1(article: any): void {
-    this.cartProduct = JSON.parse(localStorage.getItem("cart") || '[]')
-    let existingCartItem = this.cartProduct.find((item) => item._id == article._id);
-    if (existingCartItem) {
-      let prod = {
-        _id: existingCartItem._id,
-        Title: existingCartItem.Title,
-        File: existingCartItem.File,
-        Author: existingCartItem.Author,
-        Quantity: Number(existingCartItem.Quantity) + 1,
+  addcomande() {
+    this.data.addcommande(this.book).subscribe(
+      res => {
 
+      },
+      err => {
+        console.log(err);
       }
-      this.cartProduct.splice(this.cartProduct.indexOf(existingCartItem), 1, prod)
-    } else {
-      this.cartProduct.push({
-        _id: article._id,
-        Title: article.Title,
-        File: article.File,
-        Author: article.Author,
-        Quantity: 1
-
-      })
-    }
-    localStorage.setItem("cart", JSON.stringify(this.cartProduct))
-
+    )
 
   }
 

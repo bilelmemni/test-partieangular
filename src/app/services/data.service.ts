@@ -25,6 +25,13 @@ export class DataService {
   getbooktbyid(id: any) {
     return this.http.get(this.url + 'api/livre/' + id)
   }
+  downloadBook(id: any) {
+    return this.http.post(this.url + 'api/download/', id)
+  }
+  downloadBookk() {
+    return this.http.post(this.url + 'api/download', {});
+  }
+
 
 
   addToCart(product: any) {

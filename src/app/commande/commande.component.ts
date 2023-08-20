@@ -15,10 +15,6 @@ export class CommandeComponent {
     this.data.getcommande().subscribe(
       res => {
         this.products = res
-        console.log(this.products);
-
-
-
       }, err => {
         console.log(err);
 
@@ -31,11 +27,6 @@ export class CommandeComponent {
       res => {
         this.id = id
         this.listproduct = res
-        console.log(this.listproduct);
-
-
-
-
       }, err => {
         console.log(err)
       }
